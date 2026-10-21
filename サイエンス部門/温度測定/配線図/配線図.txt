@@ -1,0 +1,72 @@
+プレッドボードとラズパイ(pin番号基準)
+USB側の端と端のpin
+rasp pin40 -- bread bord 30c
+rasp pin1 -- bread bord 30h
+USB側端子の逆側
+rasp pin20 -- bread bord 11h
+rasp pin21 - bread bord 11c
+
+モーター - 青い基盤(接続済み)
+rasp pinx ラズパイのpin xの隣にぶっ指してる。
+青い基盤(PCA9685 16-channel 12-bit PWM-Driver)
+青い基盤GND -- rasp pin38(bread bord28b)GND
+青い基盤SCL -- rasp pin2(bread bord29i)gp1
+青い基盤SDA -- rasp pin1(bread bord30i)gp0
+青い基盤VCC -- rasp pin36?(bread bord 縦線プラス)(ブレッドボードの+線)3.3v
+青い基盤V+ -- rasp pin40(bread bord30b) vbus
+青い基盤OE -rasp pin3(bread bord28i)GND
+
+超音波センサ
+超音波VCC - rasp pin40(bread bord30a)(5V or 5.5V 供給された電力)
+超音波trig -- rasp pin19(bread bord12i)GP19
+超音波Echo -- rasp pin20,rasp pin18←プルダウン
+{bread bord5g(bread bord5f -- 抵抗 -- bread bord7f | bread bord7g --
+ジャンパー線 -- bread bord1li)gp15
+(bread bord7h -- 抵抗-breadbord+Rhine(7の横))}
+超音波Gnd -- rasp pin38(bread bord28a)
+
+温度センサー(raspyで動作確認済み)
+温度白線 -- breadbord j側の+Rhine(30横) GND
+温度赤線 -- breadbord a側の+Rhine 3.3v給電
+温度黄線 -- rasp pin21(breadbord 11b(breadbordl la -- プルアップ抵抗 -- breadbord
++Rhine(11横))}GP16
+
+他
+rasp pin18(breadbord13i) -- ジャンパー線 -- breadbord+Rhine(13横)
+rasp pin36(breadbord26b) -- ジャンパー線 -- breadbord+Rhine(26横)
+
+
+
+結合
+  Raspy pico 2w（物理pin）input voltages ~1.8 to 5.5 V
+    VSYS(ブイシス)（
+      電源を供給するためだけのピン（pin39)
+    GND 
+      マイナス　ゼロボルトの基準点(pin8)
+    通信(UART SPI　I2C)
+      UART1（TX）Transport転送　（pin6）
+      UART1 (RX) receive受信　　（pin7）
+    
+  raspberry pi 5（物理pin）
+
+    通信
+      UART4（TX）Transport転送　（pin32）
+      UART4 (RX) receive受信　　（pin33）
+
+    電源
+      電源を供給する(pin2)
+    
+    GND
+      マイナス　ゼロボルトの基準点(pin14)
+  
+  通信内容要件
+    仕様
+      raspberry pi 5がメイン側であり、pico2wはそこから通信を受け取り、送信する。
+      全体像として、raspberry pi 5からターミナルのコマンドが来て、pico2wが受け取る形になる。
+      pico2wはmain.py実行する。
+
+    要件
+      5側にログデータ適宜送信する。
+      pico2w終了後、5側にCSVファイル保存するようにする。
+
+    

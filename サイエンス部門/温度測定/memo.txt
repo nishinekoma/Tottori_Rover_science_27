@@ -1,0 +1,6 @@
+モーター  
+  TowerPro SG-HV
+モーター制御
+  サーボドライバー
+  PCA9685 16-channel 12-bit PWM-Driver
+  

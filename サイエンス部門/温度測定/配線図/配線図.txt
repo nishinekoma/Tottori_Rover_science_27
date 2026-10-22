@@ -38,6 +38,14 @@ rasp pin36(breadbord26b) -- ジャンパー線 -- breadbord+Rhine(26横)
 
 
 結合
+1. 配線（UARTクロス接続）の確認ご提示の通り、TXとRXはクロス（交差）させて接続します。また、
+    Pi 5 と Pico の基準電位を合わせるため、必ずGND同士を接続してください。
+      Pico ピン6 (UART1 TX) → Pi 5 ピン33 (UART4 RX)
+      Pico ピン7 (UART1 RX) → Pi 5 ピン32 (UART4 TX)
+      Pico ピン8 (GND) → Pi 5 ピン14 (GND)
+      (任意) Pi 5 ピン2 (5V) → Pico ピン39 (VSYS) ※PicoをPi 5から給電する場合
+
+      
   Raspy pico 2w（物理pin）input voltages ~1.8 to 5.5 V
     VSYS(ブイシス)（
       電源を供給するためだけのピン（pin39)

@@ -1,0 +1,6 @@
+デバッグ
+  vscode sshの拡張機能アイコン　Ubuntuのipアドレス　実行　→　パスワード　→　ターミナルでリモート操作
+  
+  cmd:sudo python3 commander.py
+
+  

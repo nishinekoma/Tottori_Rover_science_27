@@ -1,0 +1,47 @@
+1. UART4（シリアル通信ポート）の有効化
+Raspberry Pi 5 のピン 32・33 を UART 送受信端子（/dev/ttyAMA4）として認識させる設定です。
+
+設定ファイルを開きます。
+
+Bash
+sudo nano /boot/firmware/config.txt
+ファイルの末尾に以下の 1 行を追記して保存（Ctrl + O → Enter → Ctrl + X）します。
+
+Ini, TOML
+dtoverlay=uart4
+Pi 5 を再起動します。
+
+Bash
+sudo reboot
+再起動後、ポートが生成されているか確認します。
+
+Bash
+ls -l /dev/ttyAMA4
+※ /dev/ttyAMA4 が黄色または青色で表示されれば成功です。
+
+2. シリアルポートのアクセス権限付与
+sudo を使わずに一般ユーザー（yosis など）でシリアルポートを読み書きできるようにします。
+
+Bash
+sudo usermod -aG dialout $USER
+(※ 設定を反映させるため、一度ログアウトして再ログインするか再起動してください)
+
+3. 必要なパッケージのインストール
+Python でシリアル通信を制御する pyserial ライブラリを導入します。
+
+Bash
+sudo apt update
+sudo apt install -y python3 python3-serial
+4. 司令官スクリプト（~/commander.py）の配置
+ホームディレクトリに以下のスクリプトを配置
+
+
+6. 運用時の注意点（トラブル防止）
+実行時は sudo を使わない:
+sudo python3 ~/commander.py で動かすと、生成される CSV ファイル（pico_log_result.csv）が root 権限になり、次回一般ユーザーで動かした際に PermissionError: [Errno 13] Permission denied でクラッシュします。
+必ず通常の python3 ~/commander.py で実行してください。
+
+もし過去に sudo で動かしてしまってエラーが出る場合は、以下で所有権を戻します。
+
+Bash
+sudo chown $USER:$USER ~/pico_log_result.csv 2>/dev/null

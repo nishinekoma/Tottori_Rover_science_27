@@ -13,11 +13,11 @@ rasp pinx ラズパイのpin xの隣にぶっ指してる。
 青い基盤SCL -- rasp pin2(bread bord29i)gp1
 青い基盤SDA -- rasp pin1(bread bord30i)gp0
 青い基盤VCC -- rasp pin36?(bread bord 縦線プラス)(ブレッドボードの+線)3.3v
-青い基盤V+ -- rasp pin40(bread bord30b) vbus
+青い基盤V+ --  rasp pin39*(bread bord1c) (10/23変更)
 青い基盤OE -rasp pin3(bread bord28i)GND
 
 超音波センサ
-超音波VCC - rasp pin40(bread bord30a)(5V or 5.5V 供給された電力)
+超音波VCC - rasp pin39*(bread bord1b)(10/23変更)
 超音波trig -- rasp pin19(bread bord12i)GP19
 超音波Echo -- rasp pin20,rasp pin18←プルダウン
 {bread bord5g(bread bord5f -- 抵抗 -- bread bord7f | bread bord7g --
@@ -48,24 +48,26 @@ rasp pin36(breadbord26b) -- ジャンパー線 -- breadbord+Rhine(26横)
       
   Raspy pico 2w（物理pin）input voltages ~1.8 to 5.5 V
     VSYS(ブイシス)（
-      電源を供給するためだけのピン（pin39)
+      電源を供給するためだけのピン rasp pin39 (breadbord29b) 茶色
+       ジャンパー線rasp pin39(breadbord29a  --- breadbord1d)
     GND 
-      マイナス　ゼロボルトの基準点(pin8)
+      マイナス　ゼロボルトの基準点 rasp pin8 (breadbord23i) 黒色
     通信(UART SPI　I2C)
-      UART1（TX）Transport転送　（pin6）
-      UART1 (RX) receive受信　　（pin7）
+      UART1（TX）Transport転送　rasp pin6 (breadbord25i) 赤色
+      UART1 (RX) receive受信　　rasp pin7 (breadbord24i)オレンジ
     
   raspberry pi 5（物理pin）
 
-    通信
-      UART4（TX）Transport転送　（pin32）
-      UART4 (RX) receive受信　　（pin33）
-
     電源
-      電源を供給する(pin2)
+      電源を供給する(rasp pin2)茶色
+
+    
+    通信
+      UART4（TX）Transport転送　（pin32）オレンジ
+      UART4 (RX) receive受信　　（pin33）赤色
     
     GND
-      マイナス　ゼロボルトの基準点(pin14)
+      マイナス　ゼロボルトの基準点(pin14)　黒色
   
   通信内容要件
     仕様

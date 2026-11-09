@@ -8,7 +8,7 @@ rasp pin21 - bread bord 11c
 
 モーター - 青い基盤(接続済み)
 rasp pinx ラズパイのpin xの隣にぶっ指してる。
-青い基盤(PCA9685 16-channel 12-bit PWM-Driver)
+青い基盤(PCA9685 16-channel 12-bit PWM-Driver) Max 6V
 青い基盤GND -- rasp pin38(bread bord28b)GND
 青い基盤SCL -- rasp pin2(bread bord29i)gp1
 青い基盤SDA -- rasp pin1(bread bord30i)gp0
@@ -36,7 +36,6 @@ rasp pin18(breadbord13i) -- ジャンパー線 -- breadbord+Rhine(13横)
 rasp pin36(breadbord26b) -- ジャンパー線 -- breadbord+Rhine(26横)
 
 
-
 結合
 1. 配線（UARTクロス接続）の確認ご提示の通り、TXとRXはクロス（交差）させて接続します。また、
     Pi 5 と Pico の基準電位を合わせるため、必ずGND同士を接続してください。
@@ -47,27 +46,12 @@ rasp pin36(breadbord26b) -- ジャンパー線 -- breadbord+Rhine(26横)
 
       
   Raspy pico 2w（物理pin）input voltages ~1.8 to 5.5 V
-    VSYS(ブイシス)（
-      電源を供給するためだけのピン rasp pin39 (breadbord29b) 茶色
-       ジャンパー線rasp pin39(breadbord29a  --- breadbord1d)
-    GND 
-      マイナス　ゼロボルトの基準点 rasp pin8 (breadbord23i) 黒色
-    通信(UART SPI　I2C)
-      UART1（TX）Transport転送　rasp pin6 (breadbord25i) 赤色
-      UART1 (RX) receive受信　　rasp pin7 (breadbord24i)オレンジ
-    
+    USBケーブル
+
   raspberry pi 5（物理pin）
 
-    電源
-      電源を供給する(rasp pin2)茶色
-
-    
-    通信
-      UART4（TX）Transport転送　（pin32）オレンジ
-      UART4 (RX) receive受信　　（pin33）赤色
-    
-    GND
-      マイナス　ゼロボルトの基準点(pin14)　黒色
+    電源・電源・GND
+      USBケーブル
   
   通信内容要件
     仕様
@@ -79,4 +63,4 @@ rasp pin36(breadbord26b) -- ジャンパー線 -- breadbord+Rhine(26横)
       5側にログデータ適宜送信する。
       pico2w終了後、5側にCSVファイル保存するようにする。
 
-    
+  

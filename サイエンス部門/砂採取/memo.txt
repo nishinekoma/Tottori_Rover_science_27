@@ -1,6 +1,13 @@
-モーター
+モーター（シャフト機構）
+  GWS S35 STD MADE IN TAIWAN
+モーター(砂機構)
   GWS ervo Micro 2BBMG
-モーター制御
+モーター（開閉機構）
+  Tower ProTM Micro Servo Digtal 9g
+  SG90
+モーター制御(PCA9685)
   PCA9685 16-channel 12-bit PWM-Driver
-  9番目
+  1番目モーター（シャフト機構）
+  4番目モーター(砂機構)
+  9番目モーター（開閉機構）
 

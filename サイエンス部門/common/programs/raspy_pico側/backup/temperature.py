@@ -8,7 +8,7 @@ def measure_until_stable(
     tolerance=0.01,
     stable_duration_sec=10.0,
     max_wait_sec=180,
-    ignore_sec=10.0,
+    ignore_sec=1.0,
     log_func=None,
 ):
     """開始10秒間は判定を無視し、その後「10秒間連続して変動幅が0.01℃以内」になったら収束判定とします。"""

@@ -1,7 +1,7 @@
 モーター（シャフト機構）
   GWS S35 STD MADE IN TAIWAN
 モーター(砂機構)
-  GWS ervo Micro 2BBMG
+  Tower Pro MG996R DiGi Hi TORQUE
 モーター（開閉機構）
   Tower ProTM Micro Servo Digtal 9g
   SG90
@@ -11,3 +11,9 @@
   4番目モーター(砂機構)
   9番目モーター（開閉機構）
 
+
+
+
+TEST_CHANNEL1に、シャフト用モーター（GWS 360°連続回転サーボ(ローテーションサーボ) S35 STD (GWSV0008A)）
+TEST_CHANNEL４に、GWS ervo Micro 2BBMG（180度しか回転しないやつ）
+TEST_CHANNEL９に、SV90（180度しか回転しないやつ）

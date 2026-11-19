@@ -13,12 +13,24 @@ rasp pinx ラズパイのpin xの隣にぶっ指してる。
 青い基盤SCL -- rasp pin2(bread bord29i)gp1
 青い基盤SDA -- rasp pin1(bread bord30i)gp0
 青い基盤VCC -- rasp pin36?(bread bord 縦線プラス)(ブレッドボードの+線)3.3v
-青い基盤V+ --  rasp pin39*(bread bord1c) (10/23変更)
-青い基盤OE -rasp pin3(bread bord28i)GND
+青い基盤V+ --  
+青い基盤OE --
+
+青い基盤の緑の２本差すところ -- 外部給電(5.5V)?????  
+青い基盤channel0 -- GWS S35 STD MADE IN TAIWAN（３６０度回転）
+青い基盤channel4 -- Tower Pro MG996R DiGi Hi TORQUE(１８０度回転のみ)
+青い基盤channel8 --  Tower ProTM Micro Servo Digtal 9g  SG90(１８０度回転のみ)
+
+モーターと青い基盤の位置
+モーター制御(PCA9685)
+  PCA9685 16-channel 12-bit PWM-Driver
+  0番目モーター（シャフト機構）
+  4番目モーター(砂機構)
+  8番目モーター（開閉機構）
 
 超音波センサ
 超音波VCC - rasp pin39*(bread bord1b)(10/23変更)
-超音波trig -- rasp pin19(bread bord12i)GP19
+超音波trig -- rasp pin19(bread bord12i)
 超音波Echo -- rasp pin20,rasp pin18←プルダウン
 {bread bord5g(bread bord5f -- 抵抗 -- bread bord7f | bread bord7g --
 ジャンパー線 -- bread bord1li)gp15
@@ -36,21 +48,13 @@ rasp pin18(breadbord13i) -- ジャンパー線 -- breadbord+Rhine(13横)
 rasp pin36(breadbord26b) -- ジャンパー線 -- breadbord+Rhine(26横)
 
 
-結合
-1. 配線（UARTクロス接続）の確認ご提示の通り、TXとRXはクロス（交差）させて接続します。また、
-    Pi 5 と Pico の基準電位を合わせるため、必ずGND同士を接続してください。
-      Pico ピン6 (UART1 TX) → Pi 5 ピン33 (UART4 RX)
-      Pico ピン7 (UART1 RX) → Pi 5 ピン32 (UART4 TX)
-      Pico ピン8 (GND) → Pi 5 ピン14 (GND)
-      (任意) Pi 5 ピン2 (5V) → Pico ピン39 (VSYS) ※PicoをPi 5から給電する場合
-
-      
+結合  
   Raspy pico 2w（物理pin）input voltages ~1.8 to 5.5 V
     USBケーブル
 
   raspberry pi 5（物理pin）
 
-    電源・電源・GND
+    電源・通信・GND
       USBケーブル
   
   通信内容要件
